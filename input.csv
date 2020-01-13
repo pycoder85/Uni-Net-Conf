@@ -1,0 +1,3 @@
+INPUT,CISCO_COMMAND,HUAWEI_COMMAND
+check_interface,sh interfaces,display interface
+check_routing,sh ip route,display ip routing-table
