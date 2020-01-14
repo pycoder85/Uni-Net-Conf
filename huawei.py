@@ -30,13 +30,17 @@ def huawei_run(hostname):
             test = csv.reader(f, delimiter=',')
             for row in test:
                 command = row[0]
-                
+
                  # If input command is available then check the corresponding column/row based on the vendor
                 if commands == command:
                     tn.write(row[2].encode('utf-8') + b'\n')
                     time.sleep(5)
-                    print (tn.read_very_eager().decode('utf-8'))
+                    comout = tn.read_very_eager().decode('utf-8')
                     time.sleep(5)
+                    file = open('output.txt','w')
+                    file.write(comout)
+                    time.sleep(5)
+                    file.close()
                     tn.write(b"exit\n")
     else:
         print('Login Failed')

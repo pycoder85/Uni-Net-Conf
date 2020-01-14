@@ -32,9 +32,13 @@ def cisco_run(hostname):
                     ssh.send('terminal length 0 \n')
                     ssh.send(row[1] + '\n')
                     time.sleep(5)
-                    print (ssh.recv(65535).decode('utf-8'))
+                    comout = ssh.recv(65535).decode('utf-8')
                     time.sleep(5)
                     ssh.send('terminal length 32 \n')
+                    file = open('output.txt','w')
+                    file.write(comout)
+                    time.sleep(5)
+                    file.close()
                     ssh.send('exit \n')
     else:
         print('Login Failed')
@@ -72,8 +76,11 @@ def cisco_run_telnet(hostname):
                 if commands == command:
                     tn.write(row[1].encode('utf-8') + b'\n')
                     time.sleep(5)
-                    print (tn.read_very_eager().decode('utf-8'))
+                    comout = tn.read_very_eager().decode('utf-8')
+                    file = open('output.txt','w')
+                    file.write(comout)
                     time.sleep(5)
+                    file.close()
                     tn.write(b"exit\n")
     else:
         print('Login Failed')
