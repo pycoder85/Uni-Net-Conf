@@ -23,8 +23,8 @@ def cisco_run(hostname):
         # This is validator script which will parse the csv file for input
         commands = input("Please type what would you like to do: ")
         with open('input.csv', 'r') as f:
-            test = csv.reader(f, delimiter=',')
-            for row in test:
+            in_csv = csv.reader(f, delimiter=',')
+            for row in in_csv:
                 command = row[0]
 
                 # If input command is available then check the corresponding column/row based on the vendor
@@ -68,8 +68,8 @@ def cisco_run_telnet(hostname):
         # This is validator script which will parse the csv file for input
         commands = input("Please type what would you like to do: ")
         with open('input.csv', 'r') as f:
-            test = csv.reader(f, delimiter=',')
-            for row in test:
+            in_csv = csv.reader(f, delimiter=',')
+            for row in in_csv:
                 command = row[0]
                 
                  # If input command is available then check the corresponding column/row based on the vendor
